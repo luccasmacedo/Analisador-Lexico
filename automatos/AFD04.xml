@@ -1,0 +1,19 @@
+<AFD>
+   <simbolos>
+       <elemento valor= "[0-9]"/>
+       <elemento valor= "[^0-9]"/>
+   </simbolos>
+   <estados>
+       <elemento valor= "1"/>
+       <elemento valor= "2"/>
+       <elemento valor= "3"/>
+   </estados>
+   <estadosFinais>
+       <elemento valor="3"/>
+   </estadosFinais>
+   <funcaoPrograma>
+       <elemento origem="1"  destino="2" simbolo="[0-9]"/>
+       <elemento origem="2"  destino="2" simbolo="[0-9]"/>
+       <elemento origem="2"  destino="3" simbolo="[^0-9]"/>
+   </funcaoPrograma>
+</AFD>
