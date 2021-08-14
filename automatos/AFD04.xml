@@ -16,4 +16,5 @@
        <elemento origem="2"  destino="2" simbolo="[0-9]"/>
        <elemento origem="2"  destino="3" simbolo="[^0-9]"/>
    </funcaoPrograma>
+   <estadoInicial valor= '1'/>
 </AFD>
