@@ -2,7 +2,7 @@
    <simbolos>
        <elemento valor= "[a-z]"/>
        <elemento valor= "[a-z|0-9]"/>
-       <elemento valor = "[^a-z|0-9]"
+       <elemento valor = "[^a-z|0-9]"/>
    </simbolos>
    <estados>
        <elemento valor= "1"/>

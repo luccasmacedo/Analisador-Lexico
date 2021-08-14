@@ -204,12 +204,16 @@ public class AFD {
 		NodeList nl3 = elem.getElementsByTagName("funcaoPrograma");
 		NodeList nl4 = elem.getElementsByTagName("estadoInicial");
 
+		//simbolos 
 		getChildTagValue(0, (Element) nl0.item(0), "elemento");
+		//estados
 		getChildTagValue(1, (Element) nl1.item(0), "elemento");
+		//estados finais
 		getChildTagValue(2, (Element) nl2.item(0), "elemento");
 		Element eI = (Element) nl4.item(0);
 		estadoInicial = new Estado(eI.getAttribute("valor"));
 
+		//funcaoPrograma
 		getChildTagValue((Element) nl3.item(0), "elemento");
 
 	}
@@ -225,7 +229,7 @@ public class AFD {
 					switch (tipo) {
 					case 0:
 						char[] c = child.getAttribute("valor").toCharArray();
-						simbolos.inclui(new Simbolo(c[0]));
+						simbolos.inclui(new Simbolo(String.valueOf(c)));
 						break;
 					case 1:
 						estados.inclui(new Estado(child.getAttribute("valor")));
@@ -250,7 +254,7 @@ public class AFD {
 					transD.setOrigem(new Estado(child.getAttribute("origem")));
 					transD.setDestino(new Estado(child.getAttribute("destino")));
 					char[] c = child.getAttribute("simbolo").toCharArray();
-					transD.setSimbolo(new Simbolo(c[0]));
+					transD.setSimbolo(new Simbolo(String.valueOf(c)));
                                         //int a =  Integer.parseInt(child.getAttribute("acao"));                                       
 					funcaoPrograma.inclui(transD);
 				}
@@ -346,7 +350,7 @@ public class AFD {
 		Simbolo s;
 		int i = 0;
 		while (i < p.length()) {
-			s = new Simbolo(p.charAt(i));
+			s = new Simbolo(String.valueOf(p.charAt(i)));
 			eAtual = p(eAtual,s);
 			if (eAtual == null) return null;
 			i++;
