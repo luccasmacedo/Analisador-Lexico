@@ -1,7 +1,8 @@
 <AFD>
    <simbolos>
-       <elemento valor= "[\s]"/>
-       <elemento valor= "[^\s]"/>
+       <elemento valor= "[a-z]"/>
+       <elemento valor= "[a-z|0-9]"/>
+       <elemento valor = "[^a-z|0-9]"/>
    </simbolos>
    <estados>
        <elemento valor= "1"/>
@@ -12,10 +13,9 @@
        <elemento valor="3"/>
    </estadosFinais>
    <funcaoPrograma>
-       <elemento origem="1"  destino="2" simbolo="[\s]"/>
-       <elemento origem="2"  destino="2" simbolo="[\s]"/>
-       <elemento origem="2"  destino="3" simbolo="[^\s]"/>
+       <elemento origem="1"  destino="2" simbolo="[a-z]"/>
+       <elemento origem="2"  destino="2" simbolo="[a-z|0-9]"/>
+       <elemento origem="2"  destino="3" simbolo="[^a-z|0-9]"/>
    </funcaoPrograma>
-
    <estadoInicial valor= '1'/>
 </AFD>
