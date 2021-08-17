@@ -7,7 +7,10 @@ public class Principal {
 
     public static void main(String[] args) {
         Principal t = new Principal();
-        t.faca1();
+        t.faca1("./automatos/AFD01.XML", "./tokens/token01.txt");
+        t.faca1("./automatos/AFD02.XML", "./tokens/token02.txt");
+        t.faca1("./automatos/AFD03.XML", "./tokens/token03.txt");
+
     }
 
     /**
@@ -16,15 +19,15 @@ public class Principal {
      * @param w
      */
     @SuppressWarnings("empty-statement")
-    public void faca1() {
+    public void faca1(String automatoPath, String tokenPath) {
         AFD a = new AFD();
 
         try {
 
-            a.ler("./automatos/AFD03.XML");
+            a.ler(automatoPath);
             System.out.println("Autômato M = " + a);
 
-            File myObj = new File("./tokens/token03.txt");
+            File myObj = new File(tokenPath);
             Scanner myReader = new Scanner(myObj);
             String data = "";
 
@@ -32,8 +35,6 @@ public class Principal {
             while (myReader.hasNextLine()) {
                 data += myReader.nextLine() + '\n';
             }
-
-            System.out.println("String data: " + data + " " + data.length());
 
             // analisa tokens
             String token = String.valueOf(data.charAt(0));
@@ -43,6 +44,7 @@ public class Principal {
             int i;
             for (i = 1; i < data.length(); i++) {
 
+                // verifica se existe uma transição a partir do símbolo
                 if (a.p(estado, simbolo) == null) {
                     System.out.println("Erro léxico... abortando programa");
                     break;
@@ -67,6 +69,7 @@ public class Principal {
         } catch (Exception e) {
             System.out.println("An error occurred.");
         }
+        System.out.println();
     }
 
     public static String removeLastChar(String s) {
